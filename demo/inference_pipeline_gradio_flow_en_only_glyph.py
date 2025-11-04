@@ -29,8 +29,6 @@ except ImportError:
 # ============================================================================
 
 from test_word2png_function_fast import text_to_images
-# Note: 'text_to_images_fast' is imported but not used in this script.
-from test_word2png_function_fast_cjl import text_to_images as text_to_images_fast
 
 
 # ============================================================================

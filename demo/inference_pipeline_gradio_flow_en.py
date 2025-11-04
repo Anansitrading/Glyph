@@ -32,8 +32,6 @@ except ImportError:
 # ============================================================================
 
 from scripts.word2png_function import text_to_images
-# Note: 'text_to_images_fast' is imported but not used in this script.
-# from test_word2png_function_fast_cjl import text_to_images as text_to_images_fast
 
 
 # ============================================================================
@@ -211,10 +209,7 @@ def generate_and_ask(text_input, question_input, dpi, newline_choice) -> Iterato
         temp_config_path = os.path.join(OUTPUT_DIR, f"{unique_id}_config.json")
         with open(temp_config_path, 'w', encoding='utf-8') as f: json.dump(config_data, f, ensure_ascii=False, indent=4)
         image_paths = text_to_images(text=text, output_dir=OUTPUT_DIR, config_path=temp_config_path, unique_id=unique_id)
-        # if text_token_count <= 16384:
-        #     image_paths = text_to_images(text=text, output_dir=OUTPUT_DIR, config_path=temp_config_path, unique_id=unique_id)
-        # else :
-        #     image_paths = text_to_images_fast(text=text, output_dir=OUTPUT_DIR, config_path=temp_config_path, unique_id=unique_id)
+
         if not image_paths:
             yield {qwen_output: "Image generation failed."}
             return
